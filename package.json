@@ -1,0 +1,23 @@
+{
+  "name": "google_autho",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "makeModele":"npx sequelize-cli model:generate --name User --attributes googleId:string,email:string,names:string",
+    "migrate":"npx sequelize-cli db:migrate",
+    "down":"npx sequelize-cli db:migrate:undo",
+    "start": "nodemon app.js"
+  },
+  "author": "ishimwe robert",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.16.2",
+    "sequelize-cli": "^6.4.1"
+  }
+}
