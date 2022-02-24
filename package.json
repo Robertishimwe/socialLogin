@@ -4,16 +4,20 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "makeModele":"npx sequelize-cli model:generate --name User --attributes googleId:string,email:string,names:string",
-    "migrate":"npx sequelize-cli db:migrate",
-    "down":"npx sequelize-cli db:migrate:undo",
+    "makeUserModel": "npx sequelize-cli model:generate --name User --attributes googleId:string,email:string,name:string",
+    "makeProfileModel": "npx sequelize-cli model:generate --name Profile --attributes googleId:string,age:integer,address:string",
+    "migrate": "npx sequelize-cli db:migrate",
+    "down": "npx sequelize-cli db:migrate:undo",
     "start": "nodemon app.js"
   },
   "author": "ishimwe robert",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.19.2",
     "dotenv": "^16.0.0",
+    "ejs": "^3.1.6",
     "express": "^4.17.3",
+    "google-auth-library": "^7.14.0",
     "nodemon": "^2.0.15",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",

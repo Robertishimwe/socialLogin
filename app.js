@@ -5,19 +5,24 @@ const models = require("./models");
 User = models.User;
 const Sequelize = require("sequelize");
 const req = require("express/lib/request");
+const usersRoute = require("./route/usersRoute");
+const bodyParser = require('body-parser')
 db.authenticate()
  .then(()=>{
      console.log('database connected......')
  })
 
  const app = express()
- app.get("/",(req,res)=>{
-    User.findAll()
-    .then(data=>{
-        res.send(data)
-    })
- })
+ app.use(express.json());
+//  app.use(bodyParser.json())
 
- app.listen(7000, ()=>{
+
+app.set('view engine','ejs')
+
+
+ app.use("/api",usersRoute)
+
+ 
+ app.listen(3000, ()=>{
     console.log("server runnig")
 })

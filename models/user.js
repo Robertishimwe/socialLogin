@@ -11,9 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      User.hasOne(models.Profile,{
+        onDelete:"cascade"
+      })
     }
   }
-   User.init({
+  User.init({
     googleId: DataTypes.STRING,
     email: DataTypes.STRING,
     name: DataTypes.STRING

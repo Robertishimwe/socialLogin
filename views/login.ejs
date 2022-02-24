@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="1041795120653-n5846gedg80f7abh1t3truc8pf1eq47n.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <title>login</title>
+    <style>
+        body{
+            background-color: rgb(3, 61, 63);
+        }
+        .container{
+            width: 100%;
+            height: 97vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="g-signin2 googleLog" data-onsuccess="onSignIn" data-theme="dark"></div>
+    </div>
+    <script>
+        function onSignIn (googleUser){
+          // Useful data for your client-side scripts:
+        //   var profile = googleUser.getBasicProfile();
+        //   console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        //   console.log('Full Name: ' + profile.getName());
+        //   console.log('Given Name: ' + profile.getGivenName());
+        //   console.log('Family Name: ' + profile.getFamilyName());
+        //   console.log("Image URL: " + profile.getImageUrl());
+        //   console.log("Email: " + profile.getEmail());
+        // The ID token you need to pass to your backend:
+          const id_token = googleUser.getAuthResponse().id_token;
+        //   console.log(id_token)
+
+
+
+    const Options = {
+          method: 'POST',
+          headers: {
+          'Content-Type': 'application/json'
+          },
+
+          body: JSON.stringify({token:id_token})
+    };
+    console.log(Options.body)
+    fetch('http://localhost:3000/api/login/token', Options)
+
+
+         
+// .then(console.log(Options.body.token))
+
+
+
+
+
+
+
+
+
+
+          
+        //   console.log("ID Token: " + id_token);
+        }
+      </script>
+</body>
+</html>
