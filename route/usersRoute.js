@@ -10,6 +10,9 @@ router.post("/login/token",UserController.getToken)
 router.post("/login/addProfile",UserController.addProfile) 
 router.get("/profiles",UserController.getAllProfile)
 router.get("/profile",UserController.getSingleProfile)
+router.patch("/editProfile/:id",UserController.editProfile)
+
+
 
 
 

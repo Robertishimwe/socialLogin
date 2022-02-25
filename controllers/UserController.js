@@ -50,6 +50,20 @@ static getSingleProfile = async (req,res)=>{
     }
 
 
+static editProfile = async (req,res)=>{
+      await Profile.update(req.body,{
+          where:{
+              googleId:req.params.id
+          }
+      })
+      
+ 
+         .then(res.send({message:'updated....'}))
+         console.log(req.body)
+     
+     }    
+
+
 
 
    
